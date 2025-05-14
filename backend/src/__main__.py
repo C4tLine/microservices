@@ -7,18 +7,15 @@ from fastapi import FastAPI
 
 from config import logger
 from src.api.grpc.services import ProxyService
-# from src.storage import database
 
 logger = logger(__name__)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-    # await database.connect()
     grpc_task = asyncio.create_task(ProxyService.serve())
     yield
     grpc_task.cancel()
-    # await database.disconnect()
 
 
 def create_app() -> FastAPI:
@@ -30,7 +27,7 @@ if __name__ == '__main__':
         'src.__main__:create_app',
         factory=True,
         host='127.0.0.1',
-        port=8001,  # noqa: WPS432
+        port=8001,
         workers=1,
         access_log=False,
     )

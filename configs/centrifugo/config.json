@@ -6,21 +6,21 @@
         "proxy": {
             "connect": {
                 "enabled": true,
-                "endpoint": "grpc://backend_service:1337"
+                "endpoint": "grpc://backend:1337"
             }
         },
         "token": {
             "user_id_claim": "sid",
-            "jwks_public_endpoint": "http://keycloak:8080/realms/myrealm/protocol/openid-connect/certs"
+            "jwks_public_endpoint": "http://localhost:8080/realms/newrealm/protocol/openid-connect/certs"
         }
     },
     "channel": {
         "proxy": {
             "subscribe": {
-                "endpoint": "grpc://backend_service:1337"
+                "endpoint": "grpc://backend:1337"
             },
             "publish": {
-                "endpoint": "grpc://backend_service:1337"
+                "endpoint": "grpc://backend:1337"
             }
         },
         "without_namespace": {
@@ -39,7 +39,7 @@
     },
     "rpc": {
         "proxy": {
-            "endpoint": "grpc://backend_service:1337"
+            "endpoint": "grpc://backend:1337"
         },
         "without_namespace": {
             "proxy_enabled": true
