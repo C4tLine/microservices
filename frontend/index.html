@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <script src="/js/centrifuge.js"></script>
+    </head>
+    <body>
+        <div id="loginForm" style="padding: 30px 0 0 50px;">
+            <h1>Hello!!!</h1>
+            <input id="username" placeholder="username" />
+            <input id="password" type="password" placeholder="password" />
+            <button id="btnLogin">Login</button>
+        </div>
+        <div id="userInfo" style="display: none; justify-content: space-between;">
+            <div style="padding: 30px 0 0 50px;">
+                <h1 id="userHello">Hello, username</h1>
+                <button id="btnLogout">Logout</button>
+                <div style="margin-top: 10px;">
+                    <input type="text" id="channel" placeholder="channel" />
+                    <button id="btnConnect">Connect</button>
+                    <ul id="subscriptions"></ul>
+                </div>
+            </div>
+            <div id="chat" style="display: none; height: 100vh; border-left: 1px solid black; padding: 5px; box-sizing: border-box; width: 400px; flex-direction: column;">
+                <div style="height: 100%; flex: auto;" id="messages"></div>
+                <div style="margin-top: 10px; flex: auto;" id="messageForm">
+                    <textarea type="text" id="message" placeholder="message" rows="2", cols="35" style="resize: none"></textarea>
+                    <button id="btnPublish">Publish</button>
+                </div>
+            </div>
+        </div>
+        <script src="/js/connect.js"></script>
+    </body>
+</html>

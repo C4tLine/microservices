@@ -1,0 +1,26 @@
+{
+    "client": {
+        "allowed_origins": [
+            "*"
+        ],
+        "proxy": {
+            "connect": {
+                "enabled": true,
+                "endpoint": "grpc://0.0.0.0:1337"
+            }
+        }
+    },
+    "channel": {
+        "without_namespace": {
+            "allow_subscribe_for_client": true,
+            "allow_subscribe_for_anonymous": true,
+            "allow_publish_for_client": true,
+            "allow_publish_for_anonymous": true,
+            "allow_publish_for_subscriber": true
+        }
+    },
+    "admin": {
+        "secret": "secret",
+        "enabled": true
+    }
+}

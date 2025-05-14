@@ -1,0 +1,48 @@
+{
+    "client": {
+        "allowed_origins": [
+            "*"
+        ],
+        "proxy": {
+            "connect": {
+                "enabled": true,
+                "endpoint": "grpc://backend_service:1337"
+            }
+        },
+        "token": {
+            "user_id_claim": "sid",
+            "jwks_public_endpoint": "http://keycloak:8080/realms/myrealm/protocol/openid-connect/certs"
+        }
+    },
+    "channel": {
+        "proxy": {
+            "subscribe": {
+                "endpoint": "grpc://backend_service:1337"
+            },
+            "publish": {
+                "endpoint": "grpc://backend_service:1337"
+            }
+        },
+        "without_namespace": {
+            "allow_subscribe_for_client": true,
+            "allow_subscribe_for_anonymous": true,
+            "allow_publish_for_client": true,
+            "allow_publish_for_anonymous": true,
+            "allow_publish_for_subscriber": true,
+            "subscribe_proxy_enabled": true,
+            "publish_proxy_enabled": true
+        }
+    },
+    "admin": {
+        "secret": "secret",
+        "enabled": true
+    },
+    "rpc": {
+        "proxy": {
+            "endpoint": "grpc://backend_service:1337"
+        },
+        "without_namespace": {
+            "proxy_enabled": true
+        }
+    }
+}
